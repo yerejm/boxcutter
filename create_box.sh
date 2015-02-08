@@ -54,15 +54,16 @@ function make_box {
                 export EVAL_WIN81_X64=file://$ISO
                 ;;
             osx-vm)
+                # whitepsace needs to be make compatible
                 ISO=$ISO_DIR/Install\ OS\ X\ Yosemite.app
-                MAC_OSX_10_10_YOSEMITE_INSTALLER=file://$ISO
+                export MAC_OSX_10_10_YOSEMITE_INSTALLER=$(echo "$ISO" | sed 's/ /\\\ /g')
                 ;;
             *)
                 echo "Unsupported option $OS"
                 exit 1
                 ;;
         esac
-        if [ ! -f "$ISO" ]; then
+        if [ ! -e "$ISO" ]; then
             echo "No ISO for $VMDIR at $ISO. Skipping..."
             exit 1
         fi
