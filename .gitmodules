@@ -1,0 +1,12 @@
+[submodule "ubuntu"]
+	path = ubuntu
+	url = https://github.com/boxcutter/ubuntu.git
+[submodule "debian"]
+	path = debian
+	url = https://github.com/boxcutter/debian.git
+[submodule "windows"]
+	path = windows
+	url = https://github.com/boxcutter/windows.git
+[submodule "osx"]
+	path = osx
+	url = https://github.com/boxcutter/osx.git

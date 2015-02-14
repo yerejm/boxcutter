@@ -15,16 +15,16 @@ function check_arg {
 function vm_dir {
     case "$1" in
         ubuntu*)
-            VM=ubuntu-vm
+            VM=ubuntu
             ;;
         debian*)
-            VM=debian-vm
+            VM=debian
             ;;
         eval-win*|win*)
-            VM=windows-vm
+            VM=windows
             ;;
         osx*)
-            VM=osx-vm
+            VM=osx
             ;;
         *)
             echo "Unsupported option $1"
@@ -41,19 +41,19 @@ function make_box {
 
     if [ -z "$SKIP_ISO" ]; then
         case "$VMDIR" in
-            ubuntu-vm)
+            ubuntu)
                 ISO=$ISO_DIR/ubuntu-14.10-server-amd64.iso
                 export UBUNTU1410_SERVER_AMD64=file://$ISO
                 ;;
-            debian-vm)
+            debian)
                 ISO=$ISO_DIR/debian-7.7.0-amd64-DVD-1.iso
                 export DEBIAN77_AMD64=file://$ISO
                 ;;
-            windows-vm)
+            windows)
                 ISO=$ISO_DIR/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_ENTERPRISE_EVAL_EN-US-IRM_CENA_X64FREE_EN-US_DV5.ISO
                 export EVAL_WIN81_X64=file://$ISO
                 ;;
-            osx-vm)
+            osx)
                 # whitepsace needs to be make compatible
                 ISO=$ISO_DIR/Install\ OS\ X\ Yosemite.app
                 export MAC_OSX_10_10_YOSEMITE_INSTALLER=$(echo "$ISO" | sed 's/ /\\\ /g')
