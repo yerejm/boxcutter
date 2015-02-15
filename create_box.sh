@@ -46,7 +46,7 @@ function make_box {
                 export UBUNTU1410_SERVER_AMD64=file://$ISO
                 ;;
             debian)
-                ISO=$ISO_DIR/debian-7.7.0-amd64-DVD-1.iso
+                ISO=$ISO_DIR/debian-7.8.0-amd64-DVD-1.iso
                 export DEBIAN77_AMD64=file://$ISO
                 ;;
             windows)
