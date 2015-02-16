@@ -47,7 +47,7 @@ function make_box {
                 ;;
             debian)
                 ISO=$ISO_DIR/debian-7.8.0-amd64-DVD-1.iso
-                export DEBIAN77_AMD64=file://$ISO
+                export DEBIAN78_AMD64=file://$ISO
                 ;;
             windows)
                 ISO=$ISO_DIR/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_ENTERPRISE_EVAL_EN-US-IRM_CENA_X64FREE_EN-US_DV5.ISO
