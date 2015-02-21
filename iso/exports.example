@@ -1,0 +1,6 @@
+# This file needs to be named exports once customised.
+#
+# Set up localised environment variables for specifying locations of
+# installation files here. For example,
+# export UBUNTU1410_SERVER_AMD64="$PWD/iso/ubuntu-14.10-server-amd64.iso"
+

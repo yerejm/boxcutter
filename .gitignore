@@ -1,6 +1,7 @@
 *.iso
 *.dmg
 *.app
+iso/exports
 # OS generated files #
 # ######################
 .DS_Store
