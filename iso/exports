@@ -1,0 +1,8 @@
+# -*- mode: sh -*-
+# vi: set ft=sh tabstop=2 expandtab shiftwidth=2 softtabstop=2 :
+
+# Set up localised environment variables for specifying locations of
+# installation files here.
+
+export ISO_PATH="$PWD/iso"
+

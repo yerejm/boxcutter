@@ -39,34 +39,9 @@ function make_box {
     SKIP_ISO=$2
     VMDIR=$(vm_dir "$OS")
 
-    if [ -z "$SKIP_ISO" ]; then
-        case "$VMDIR" in
-            ubuntu)
-                ISO=$ISO_DIR/ubuntu-14.10-server-amd64.iso
-                export UBUNTU1410_SERVER_AMD64=file://$ISO
-                ;;
-            debian)
-                ISO=$ISO_DIR/debian-7.8.0-amd64-DVD-1.iso
-                export DEBIAN78_AMD64=file://$ISO
-                ;;
-            windows)
-                ISO=$ISO_DIR/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_ENTERPRISE_EVAL_EN-US-IRM_CENA_X64FREE_EN-US_DV5.ISO
-                export EVAL_WIN81_X64=file://$ISO
-                ;;
-            osx)
-                # whitepsace needs to be make compatible
-                ISO=$ISO_DIR/Install\ OS\ X\ Yosemite.app
-                export MAC_OSX_10_10_YOSEMITE_INSTALLER=$(echo "$ISO" | sed 's/ /\\\ /g')
-                ;;
-            *)
-                echo "Unsupported option $OS"
-                exit 1
-                ;;
-        esac
-        if [ ! -e "$ISO" ]; then
-            echo "No ISO for $VMDIR at $ISO. Skipping..."
-            exit 1
-        fi
+    if [[ -z "$SKIP_ISO" && -f iso/exports ]]; then
+        # get environment variables for iso filenames from local env
+        source iso/exports
     fi
 
     (cd "$VMDIR" && \
