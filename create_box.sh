@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 export CM=nocm
-ISO_DIR="$PWD/iso"
 
 function check_arg {
     if [ -z "$1" ]; then
