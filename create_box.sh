@@ -53,9 +53,16 @@ function make_box {
 }
 
 function vm_make {
-    VMDIR=$(vm_dir "$OS")
-    MK_TARGET=$2
-    (cd "$VMDIR" && make "$MK_TARGET")
+    if [ "$1" = "all" ]; then
+        OS="ubuntu debian windows osx"
+    else
+        OS=$1
+    fi
+    for os in $OS; do
+        VMDIR=$(vm_dir "$os")
+        MK_TARGET=$2
+        (cd "$VMDIR" && make "$MK_TARGET")
+    done
 }
 
 OS=$1
@@ -65,6 +72,9 @@ check_arg "$OS" "Missing OS parameter."
 check_arg "$OP" "Missing OR parameter."
 
 case $OP in
+    clean)
+        vm_make "$OS" clean
+        ;;
     make|remake)
         if [ "$OP" = "remake" ]; then vm_make "$OS" clean; fi
         make_box "$OS" "$SKIP_ISO"
