@@ -1,6 +1,7 @@
 *.iso
 *.dmg
 *.app
+iso
 iso/exports
 # OS generated files #
 # ######################
