@@ -10,3 +10,6 @@
 [submodule "osx"]
 	path = osx
 	url = https://github.com/boxcutter/osx.git
+[submodule "freebsd"]
+	path = freebsd
+	url = https://github.com/yerejm/packer-freebsd
