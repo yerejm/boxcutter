@@ -25,6 +25,9 @@ function vm_dir {
         osx*)
             VM=osx
             ;;
+        freebsd*)
+            VM=freebsd
+            ;;
         *)
             echo "Unsupported option $1"
             exit 1
@@ -54,7 +57,7 @@ function make_box {
 
 function vm_make {
     if [ "$1" = "all" ]; then
-        OS="ubuntu debian windows osx"
+        OS="ubuntu debian windows osx freebsd"
     else
         OS=$1
     fi
