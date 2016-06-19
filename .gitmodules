@@ -4,3 +4,12 @@
 [submodule "osx"]
 	path = osx
 	url = https://github.com/boxcutter/osx.git
+[submodule "bsd"]
+	path = bsd
+	url = https://github.com/boxcutter/bsd.git
+[submodule "windows"]
+	path = windows
+	url = https://github.com/boxcutter/windows.git
+[submodule "debian"]
+	path = debian
+	url = https://github.com/boxcutter/debian.git
