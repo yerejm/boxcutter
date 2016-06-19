@@ -4,12 +4,3 @@
 [submodule "osx"]
 	path = osx
 	url = https://github.com/boxcutter/osx.git
-[submodule "freebsd"]
-	path = freebsd
-	url = https://github.com/yerejm/packer-freebsd
-[submodule "windows"]
-	path = windows
-	url = https://github.com/yerejm/windows.git
-[submodule "debian"]
-	path = debian
-	url = https://github.com/yerejm/debian.git
