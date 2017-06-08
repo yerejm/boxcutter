@@ -10,3 +10,6 @@
 [submodule "windows"]
 	path = windows
 	url = https://github.com/boxcutter/windows.git
+[submodule "bsd"]
+	path = bsd
+	url = https://github.com/boxcutter/bsd.git
