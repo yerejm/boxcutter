@@ -5,8 +5,8 @@ for f in ${filelist}; do
     if [ -f "${f}" ]; then
         # override only if checksum expected
         target_sha=$(shasum -a 512 "${f}" | awk '{print $1}')
-        override_sha=$(grep "${f}" ${0} | awk '{print $2}')
-        if [ "${target_sha}" = "${override_sha}" -o -n "${FORCE}" ]; then
+        override_sha=$(grep "${f}" "${0}" | awk '{print $2}')
+        if [ "${target_sha}" = "${override_sha}" ] || [ -n "${FORCE}" ]; then
             echo "Overriding existing ${f}"
             (cd override && ${CP} --parents "${f}" ..)
         else

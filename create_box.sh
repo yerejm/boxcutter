@@ -42,7 +42,7 @@ function packer_build {
     (cd "$VMDIR" && \
         packer build -only=virtualbox-iso \
                      -var-file="$VARIANT.json" \
-                     -var "version=`cat VERSION`" \
+                     -var "version=$(cat VERSION)" \
                      -var "iso_path=$ISODIR" \
                      "$OS.json" && \
         find . -name "$VARIANT*.box" -exec vagrant box add --force "$VARIANT" {} \;)
@@ -78,8 +78,8 @@ function make_box {
                 sudo prepare_iso/prepare_iso.sh "$MAC_OSX_INSTALLER" dmg && \
                 sudo rm -rf /tmp/veewee-osx* && \
                 packer build -only=virtualbox-iso \
-                             -var-file=$OS.json \
-                             -var "version=`cat VERSION`" \
+                             -var-file="$OS.json" \
+                             -var "version=$(cat VERSION)" \
                              -var "iso_url=dmg/$MAC_OSX_BOOT_DMG" \
                              osx.json && \
                 find . -name "$OS*.box" -exec vagrant box add --force "$OS" {} \;)
@@ -112,12 +112,13 @@ function vm_make {
 function vm_list {
     OS=$1
     VMDIR=$(vm_dir "$OS")
-    find $VMDIR -name '*.json' | xargs -I{} basename {} .json
+    find "$VMDIR" -name '*.json' | xargs -I{} basename {} .json
 }
 
 OS=$1
 OP=$2
-BASEDIR=$(realpath $(dirname "$0"))
+PROGPATH=$(dirname "$0")
+BASEDIR=$(realpath "$PROGPATH")
 
 check_arg "$OS" "Missing OS parameter."
 check_arg "$OP" "Missing OP parameter."
