@@ -34,6 +34,18 @@ if [ "$INSTALL_VAGRANT_KEY" = "true" ] || [ "$INSTALL_VAGRANT_KEY" = "1" ]; then
 fi
 
 if [ ! -f "$SSH_USER_HOME/.config/i3/config" ]; then
+    echo '==> Creating i3wm config'
     mkdir -p $SSH_USER_HOME/.config/i3
     cp /etc/i3/config $SSH_USER_HOME/.config/i3/config
+    chown -R $SSH_USER:$SSH_USER $SSH_USER_HOME/.config
 fi
+XSESSIONRC="$SSH_USER_HOME/.xsessionrc"
+if [ ! -f "$XSESSIONRC" ]; then
+    echo '==> Creating .xsessionrc'
+    touch $XSESSIONRC
+    echo "xset s off" >> $XSESSIONRC
+    echo "xset s noblank" >> $XSESSIONRC
+    echo "xset -dpms" >> $XSESSIONRC
+    chown -R $SSH_USER:$SSH_USER $XSESSIONRC
+fi
+
